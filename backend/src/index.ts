@@ -4,6 +4,8 @@ import "dotenv/config";
 import { connectDB } from "./config/db";
 import userRouter from "./routes/userRoutes";
 import incomeRouter from "./routes/incomeRoutes";
+import expenseRouter from "./routes/expenseRoute";
+import dashboardRouter from "./routes/dashboardRoute";
 
 const app = express();
 const port = 4000;
@@ -24,6 +26,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRouter);
 app.use("/api/income", incomeRouter);
+app.use('/api/expense', expenseRouter);
+app.use("/api/dashboard", dashboardRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

@@ -5,7 +5,10 @@ export const incomeSchema = z.object({
   description: z.string().min(1, "Description is required"),
   amount: z.number().positive("Amount must be positive"),
   category: z.string().min(1, "Category is required"),
-  date: z.coerce.date(), // coerce converts string dates from req.body to Date
+  date: z.coerce.date(), 
 });
+export type IncomeInput = z.infer<typeof incomeSchema>;
 
-export type IncomeInput = z.infer<typeof incomeSchema>; // replaces your IIncome interface
+// ✅ reuse instead of redefining
+export const expenseSchema = incomeSchema;
+export type ExpenseInput = IncomeInput;

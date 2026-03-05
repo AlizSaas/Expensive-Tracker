@@ -16,12 +16,12 @@ export const addIncome = async (req: Request, res: Response) => {
 
   const result = incomeSchema.safeParse(req.body);
 
-  if (!result.success) {
+if (!result.success) {
     return res.status(400).json({
-      success: false,
-      message: result.error.flatten().fieldErrors,
+        success: false,
+        message: result.error.message // Use .errors instead of deprecated .flatten()
     });
-  }
+}
 
   const { description, amount, category, date } = result.data;
 
