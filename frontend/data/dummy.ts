@@ -1,4 +1,5 @@
- // src/data/dummyData.js
+ // @ts-nocheck
+// src/data/dummyData.js
 import { v4 as uuidv4 } from 'uuid';
 
 // Generate random dates within the last 30 days
